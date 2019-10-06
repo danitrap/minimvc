@@ -13,21 +13,33 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">Questo è un mini MVC.</h1>
-                <h2 class="subtitle">Un piccolo progetto in PHP per dimostrare il pattern architetturale Model-View-Controller.</h2>
+                <h2 class="subtitle">Un piccolo progetto in PHP per dimostrare il pattern architetturale Model-View-Controller. La lista dei todo è renderizzata server-side, non c'è persistenza.</h2>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
-            <div class="card">
-                <div class="card-content">
-                    <p class="title">TODOs</p>
-                    <ul class="content">
-                        <?php foreach ($todos as $todo): ?>
-                            <li><?php echo $todo; ?></li>
-                        <?php endforeach;?>
-                    </ul>
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            <p class="title">TODOs</p>
+                            <form>
+                                <?php foreach ($todos as $todo): ?>
+                                    <div class="field">
+                                        <div class="control">
+                                            <label class="checkbox">
+                                                <input type="checkbox"> <span><?php echo $todo; ?></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                <?php endforeach;?>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+                <div class="column"></div>
             </div>
         </div>
     </section>
