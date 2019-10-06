@@ -30,7 +30,7 @@
                                     <div class="field">
                                         <div class="control">
                                             <label class="checkbox">
-                                                <input type="checkbox"> <span><?php echo $todo; ?></span>
+                                                <input type="checkbox"> <span><?=$todo;?></span>
                                             </label>
                                         </div>
                                     </div>
