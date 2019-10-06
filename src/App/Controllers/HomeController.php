@@ -8,4 +8,9 @@ class HomeController
     {
         return 'Hello';
     }
+
+    public function test()
+    {
+        return 'Test route';
+    }
 }

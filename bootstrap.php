@@ -1,6 +1,6 @@
 <?php
 
-$app = new Mvc\Core\Container;
+use Mvc\Core\Container;
 
-$app->bind('logger', Mvc\Core\Logger::getInstance());
-$app->bind('router', new Mvc\Core\Router);
+Container::bind('logger', Mvc\Core\Logger::getInstance());
+Container::bind('router', Mvc\Core\Router::class);

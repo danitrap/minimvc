@@ -2,20 +2,24 @@
 
 namespace Mvc\Core;
 
+use Mvc\Core\Container;
+
 class Router
 {
     private $routes;
 
-    public function load($routes)
+    public static function load($routes)
     {
-        $this->routes = $routes;
+        $self = new static;
 
-        return $this;
+        $self->routes = $routes;
+
+        return $self;
     }
 
-    public function go()
+    public function go($url)
     {
-        $url = $_SERVER['REQUEST_URI'];
+        Container::resolve('logger')->info($url);
 
         if (array_key_exists($url, $this->routes)) {
             $controllerName   = $this->routes[$url][0];

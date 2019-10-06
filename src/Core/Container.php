@@ -4,15 +4,17 @@ namespace Mvc\Core;
 
 class Container
 {
-    private $container = [];
+    private static $container = [];
 
-    public function bind($alias, $concretion)
+    public static function bind($alias, $concretion)
     {
-        $this->container[$alias] = $concretion;
+        static::$container[$alias] = $concretion;
     }
 
-    public function resolve($alias)
+    public static function resolve($alias)
     {
-        return $this->container[$alias];
+        if (array_key_exists($alias, static::$container)) {
+            return static::$container[$alias];
+        }
     }
 }
