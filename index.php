@@ -2,8 +2,6 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-$logger = Mvc\Core\Logger::getInstance();
+require __DIR__ . '/bootstrap.php';
 
-$logger->info('test');
-$logger->debug('test');
-$logger->error('test');
+$app->resolve('router')->load(require __DIR__ . '/routes.php')->go();
