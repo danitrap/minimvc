@@ -10,6 +10,6 @@ class HomeController
     {
         $todos = Todo::all();
 
-        return require 'views/home/index.php';
+        return require 'views/home/index.view.php';
     }
 }
