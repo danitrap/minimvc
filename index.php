@@ -8,4 +8,4 @@ require __DIR__ . '/bootstrap.php';
 
 $router = Container::resolve('router');
 
-$router::load(require __DIR__ . '/routes.php')->go($_SERVER['REQUEST_URI']);
+echo $router::load(require __DIR__ . '/routes.php')->go($_SERVER['REQUEST_URI']);
