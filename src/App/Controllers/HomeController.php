@@ -10,6 +10,6 @@ class HomeController
     {
         $todos = Todo::all();
 
-        return require __DIR__ . '/../../../views/index.php';
+        return require 'views/home/index.php';
     }
 }

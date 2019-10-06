@@ -6,7 +6,7 @@ use Mvc\Core\Container;
 
 class Router
 {
-    private $routes = [];
+    protected $routes = [];
 
     public static function load($routes)
     {
@@ -22,10 +22,15 @@ class Router
         Container::resolve('logger')->info($url);
 
         if (array_key_exists($url, $this->routes)) {
-            $controllerName   = $this->routes[$url][0];
-            $controllerMethod = $this->routes[$url][1];
-
-            return call_user_func([new $controllerName, $controllerMethod]);
+            return $this->invoke(...$this->routes[$url]);
+        } else {
+            header('404 Not Found', true, 404);
+            return null;
         }
+    }
+
+    protected function invoke($controller, $method)
+    {
+        return call_user_func([new $controller, $method]);
     }
 }
