@@ -2,15 +2,14 @@
 
 namespace Mvc\App\Controllers;
 
+use Mvc\App\Models\Todo;
+
 class HomeController
 {
     public function index()
     {
-        return 'Hello';
-    }
+        $todos = Todo::all();
 
-    public function test()
-    {
-        return 'Test route';
+        return require __DIR__ . '/../../../views/index.php';
     }
 }
