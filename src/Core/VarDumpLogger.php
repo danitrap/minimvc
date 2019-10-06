@@ -2,19 +2,15 @@
 
 namespace Mvc\Core;
 
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger as MonologLogger;
+use Mvc\Core\Contracts\LoggerInterface;
 
-class Logger
+class VarDumpLogger implements LoggerInterface
 {
     private static $instance = null;
 
-    private $logger;
-
     private function __construct()
     {
-        $this->logger = new MonologLogger('logger');
-        $this->logger->pushHandler(new StreamHandler('app.log', MonologLogger::DEBUG));
+
     }
 
     public static function getInstance()
@@ -28,17 +24,17 @@ class Logger
 
     public function info($message)
     {
-        $this->logger->info($message);
+        var_dump($message);
     }
 
     public function debug($message)
     {
-        $this->logger->debug($message);
+        var_dump($message);
     }
 
     public function error($message)
     {
-        $this->logger->error($message);
+        var_dump($message);
     }
 
 }
